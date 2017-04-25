@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class CommentConfirmation extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ export default class CommentConfirmation extends React.Component {
         </span>
       );
     } else {
-      confirmNode = <a href="" onClick={this._toggleConfirmMessage.bind(this)}>{this.props.children}}</a>;
+      confirmNode = <a href="" onClick={this._toggleConfirmMessage.bind(this)}>{this.props.children}</a>;
     }
 
     return (
@@ -43,4 +44,8 @@ export default class CommentConfirmation extends React.Component {
     e.preventDefault();
     this.props.onConfirm();
   }
+}
+
+CommentConfirmation.propTypes = {
+  onConfirm: PropTypes.func.isRequired
 }
